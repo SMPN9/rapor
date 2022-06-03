@@ -1,0 +1,82 @@
+<html>
+<style>
+#myTable th{background-color:#808080;color:white}
+#myTable {white-space:nowrap;text-overflow:ellipsis;
+  border-collapse: collapse;
+  
+  border: 1px solid #ddd;
+  font-size: 12px;
+  border-radius:3px;box-shadow:0px 1px 10px 0px rgb(0,0,0,0.3);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+
+</style>
+<body>
+
+<div id='data'></div>
+
+<div id="ff"><iframe style="width:100%;height:150%;border:block" ></iframe></div>
+
+</body>
+<script>
+var isi=document.getElementById('data');
+var data=[{"nama":"Rapor_YUSRANG_20212.pdf","id":"1ftnK3cVNPPMsYN9t2QHvc4zck7aXc2z1","size":10812},{"nama":"Rapor_WAHDANIA_20212.pdf","id":"1LD2keMz7SfKrOEDqRGbrlA4Qu8xBQ-ko","size":10750},{"nama":"Rapor_TRI SUCI RAMADHANI_20212.pdf","id":"14sLj5ANq18Es9UK6Cc6A9aNwxNbYUhIG","size":10715},{"nama":"Rapor_TAUFIQUL HAKIM_20212.pdf","id":"1sFvjdU2z7jWTFK3ML7lAH_UeYiF5HbA9","size":10739},{"nama":"Rapor_TAUFIK HIDAYAH_20212.pdf","id":"14MaotdK0mEeiKMFklNOqhFi_b9MunsVU","size":10975},{"nama":"Rapor_TASYA MUARIKAH_20212.pdf","id":"1acbWUXYAersXexTWGuIOB-ILl8wjZrDB","size":10637},{"nama":"Rapor_SYAMSUL_20212.pdf","id":"1UqhacQ8eClWlHOUk_YYUunixaLvEVVR2","size":10813},{"nama":"Rapor_SUKMAWATI_20212.pdf","id":"1aWKeEc2EwOR3trOCCNrKkMvtXtgcVv20","size":10835},{"nama":"Rapor_SUDIRMAN_20212.pdf","id":"1WJrSP6mcnYpRvdcDR8tkGksvfJektEX-","size":10757},{"nama":"Rapor_SUDARMI_20212.pdf","id":"1QI7pJ-QCDPET9EmXrFh7YIQ6uRTSuvfQ","size":10857},{"nama":"Rapor_SUCI RAMADHAN_20212.pdf","id":"1VXRCaGFX5r-p_WRA5UVkRLR82hZhn_c0","size":11009},{"nama":"Rapor_SATRIANI_20212.pdf","id":"1uNC7hr8wYWpPbRLRXeujyvQGY2uHJpGe","size":10760},{"nama":"Rapor_SATRIALDI_20212.pdf","id":"1ktc7UJeV4fOoHv6UTenhxHORC6KkPQxS","size":10918},{"nama":"Rapor_SAKTIAWAN_20212.pdf","id":"1HKrckwsTgqOGXGxqJGDuGgDRmmgIp7ba","size":10918},{"nama":"Rapor_RISWAN_20212.pdf","id":"1ACYHXOyB8xervGpys_sCyb94Ym79iQpy","size":10812},{"nama":"Rapor_RISKA SRI WAHYUNI_20212.pdf","id":"1QXy8fRajb7oyueCnwII9rBxVQPji3oyR","size":10733},{"nama":"Rapor_RIFATUL_20212.pdf","id":"1gQL91Wp_jmJwfahxcYc1DAl-KoixziV-","size":10942},{"nama":"Rapor_RANDI ARIANTO_20212.pdf","id":"1ELUh3ZXjvUqIfe96DwVWUsnEw-TygydN","size":10823},{"nama":"Rapor_RAHMANIAR_20212.pdf","id":"1GkC9xM_qUv0lx4fhdg3zNLRMDTNduTFj","size":10844},{"nama":"Rapor_NURUL PRATIWI PUTRI_20212.pdf","id":"1TNEOK8yk2WZaTJAgyZQ9glHPqHAEa3Q0","size":10975},{"nama":"Rapor_NURUL HIDAYU_20212.pdf","id":"1VdvOREYhcoqH8p1c_LjgDPp2937eqCUr","size":10683},{"nama":"Rapor_MUHLIS_20212.pdf","id":"1johlqNutZu7ysBAj4hnmkBEDH5FPZUcb","size":10861},{"nama":"Rapor_MUH.YASIR_20212.pdf","id":"1suegeDiHR3nKIm20gP6qTOvQRmNt-KD1","size":10850},{"nama":"Rapor_MUH. RASYA REZKY_20212.pdf","id":"1zP6_hLaJuZ1xx98WdQEx0Aw4LjSDkeW2","size":10766},{"nama":"Rapor_M RASYA_20212.pdf","id":"1AGdprMdpDMUiqRJt-a2V6SBpRKv1DPPR","size":10788}]
+var gab=''
+var cek=''
+for(var i=0;i<data.length;i++){
+ cek=data[i].nama.split('_')
+gab+='<tr><td>'+(i+1)+'</td><td>'+cek[1]+'</td><td style="display:none">'+data[i].id+'</td></tr>'
+}
+gab='<table id="myTable" border="1">'+gab+'</table>'
+isi.innerHTML=gab;
+
+
+var table = document.getElementById("myTable");
+    var rows = table.getElementsByTagName("tr");
+	for (var i=0;i<rows.length;i++)
+	{ 
+	
+	rows[i].onclick=function(e){go((this.cells[2].innerHTML))}
+	
+	}
+
+
+function go(id){
+	  
+  
+    var xhr = new XMLHttpRequest();
+    var ab='https://script.google.com/macros/s/AKfycbztPTwO7hfMJ99p0KT-iV9hu-7Lxc4aXizotxrrH7M929nWV1I/exec?kode=2&id='+id
+	alert(ab)
+    xhr.open('POST', ab, true);
+    xhr.onerror = function() {  
+     
+     alert('jaringan gangguan')}
+    xhr.onload = function () {
+    alert(xhr.responseText)
+	// var hh=xhr.responseText;document.getElementById('ff').innerHTML='<iframe style="width:100%;height:150%;border:none" src="'+hh+'" ></iframe>'; hh=''
+	}  
+    xhr.onprogress = function(evt) { }
+    xhr.send();
+    }
+	
+
+	
+	
+</script>
+
+
+
+
+</html>
