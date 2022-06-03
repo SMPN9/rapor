@@ -110,8 +110,10 @@ function go(id,nm){
 	
     xhr.open('get', ab, true);
     xhr.onerror = function() {  
-     
-     alert('tidak ada jaringan internet')}
+     document.getElementById('ff').innerHTML='<div style="margin:200px;font-size:20px;text-align:center">Tiadak ada jaringan internet</div>'
+  
+     alert('tidak ada jaringan internet');
+}
     xhr.onload = function () {
     var hh=xhr.responseText;document.getElementById('ff').innerHTML='<iframe style="width:100%;height:100%;border:none" src="'+hh+'" ></iframe>'; hh=''
 	}  
